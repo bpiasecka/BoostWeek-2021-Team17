@@ -20,19 +20,29 @@ public class CarScript : MonoBehaviour
             engine.SilnikStart();
             Drive();
         }
+
+        if (PlayerPrefs.GetInt("energy") == 0)
+        {
+            isDriving = false;
+        }
+
+        if (!isDriving)
+        {
+            engine.SilnikOff();
+        }
     }
 
     private void Drive()
     {
-        if (energyLevel > 0f)
+        //if (energyLevel > 0f)
+        if (PlayerPrefs.GetInt("energy") == 1) 
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
             energyLevel = Mathf.Max(energyLevel - energyUsage * Time.deltaTime, 0f);
         }
-        else
+        else 
         {
             isDriving = false;
-            engine.SilnikOff();
         }
     }
 
