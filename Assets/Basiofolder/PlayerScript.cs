@@ -40,6 +40,11 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(new Vector3(0f, jumpForce, 0f));
             StartCoroutine(BlockJump());
         }
+
+        if(transform.position.y < 1f)
+        {
+            GameObject.FindObjectOfType<CarScript>().isDriving = false;
+        }
     }
     public IEnumerator BlockJump()
     {
