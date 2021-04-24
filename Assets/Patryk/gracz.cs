@@ -34,6 +34,8 @@ public class gracz : MonoBehaviour
         e1 = 0;
         e2 = 0;
         e3 = 0;
+
+        StartCoroutine(EnergiaCykl());
     }
 
     void TakeEnergy()
@@ -44,18 +46,26 @@ public class gracz : MonoBehaviour
 
     public void Update()
     {
+        
+    }
+
+    IEnumerator EnergiaCykl()
+    {
+        yield return new WaitForSeconds(1);
+
+        baterja.SetFloat("_EnergyAmount", currentEnergy);
         minusEnergy = e1 + e2 + e3;
 
         currentEnergy -= minusEnergy;
 
         energyControl = PlayerPrefs.GetInt("energy");
-       // energyBar.SetEnergy(currentEnergy);
+        // energyBar.SetEnergy(currentEnergy);
         if (currentEnergy > maxEnergy)
         {
             currentEnergy = 100;
         }
 
-        if(currentEnergy < 0)
+        if (currentEnergy < 0)
         {
             PlayerPrefs.SetInt("energy", 0);
             currentEnergy = 0;
@@ -63,10 +73,14 @@ public class gracz : MonoBehaviour
             SwiatloOff();
             OgienOff();
         }
-        if(currentEnergy > 0)
+        if (currentEnergy > 0)
         {
             PlayerPrefs.SetInt("energy", 1);
         }
+
+
+        //powrót do cyklu
+        StartCoroutine(EnergiaCykl());
     }
 
     public void SilnikStart()
