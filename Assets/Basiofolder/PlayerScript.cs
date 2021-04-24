@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
             animator.SetBool("walking", false);
+
         if (!isJumpBlocked && isGrounded && Input.GetKey(KeyCode.W))
         {
             animator.SetBool("jumping", true);

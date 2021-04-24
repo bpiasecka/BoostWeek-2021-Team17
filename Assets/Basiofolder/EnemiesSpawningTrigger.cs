@@ -7,11 +7,14 @@ public class EnemiesSpawningTrigger : MonoBehaviour
     public GameObject enemyPrefab;
     public int enemiesNumber;
     public float nextEnemySpawningDelay, spawningPlaceDistanceToCarX, spawningPlacePositionY, spawningPlacePositionZ;
+    private bool used = false;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Car"))
+        Debug.Log(other.gameObject.name);
+        if (other.gameObject.CompareTag("Car") && !used)
         {
+            used = true;
             StartCoroutine(SpawnEnemies());
         }
     }

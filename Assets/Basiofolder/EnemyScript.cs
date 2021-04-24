@@ -6,14 +6,20 @@ public class EnemyScript : MonoBehaviour
 {
     public float speed, damageValue;
     private Collider collider;
+    private Rigidbody rb;
+    private CarScript car;
 
     public void Start()
     {
         collider = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
+        car = GameObject.FindObjectOfType<CarScript>();
     }
     public void Update()
     {
-        transform.Translate(-speed * Time.deltaTime, 0f, 0f);
+        transform.Translate(new Vector3(Time.deltaTime * (car.transform.position.x < transform.position.x ? -speed : speed), 0f, 0f));
+        //transform.RotateAround(transform.position, new Vector3(0f, 0f, 1f), (car.transform.position.x < transform.position.x ? speed : -speed) * 5 * Time.deltaTime);
+        //transform.localEulerAngles += new Vector3(0f, 0f, (car.transform.position.x < transform.position.x ? speed : -speed) * 5 * Time.deltaTime);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -25,13 +31,13 @@ public class EnemyScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Car")
         {
-            GameObject.FindObjectOfType<CarScript>().MakeDamage(damageValue);
+            car.MakeDamage(damageValue);
             KillEnemy();
         }
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerScript>().SetStartPosition();
-            KillEnemy(); //really?
+            KillEnemy();
         }
 
     }
