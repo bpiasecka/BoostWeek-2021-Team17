@@ -8,10 +8,12 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody rb;
     public bool isGrounded, isJumpBlocked;
     public Vector3 startPositionInCar;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         SetStartPosition();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,14 +21,21 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
+            animator.SetBool("walking", true);
+            transform.eulerAngles = Vector3.zero;
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
+            animator.SetBool("walking", true);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         }
+        else
+            animator.SetBool("walking", false);
         if (!isJumpBlocked && isGrounded && Input.GetKey(KeyCode.W))
         {
+            animator.SetBool("jumping", true);
             rb.AddForce(new Vector3(0f, jumpForce, 0f));
             StartCoroutine(BlockJump());
         }
@@ -39,6 +48,8 @@ public class PlayerScript : MonoBehaviour
     }
     public void SetGrounded(bool b)
     {
+        if (b)
+            animator.SetBool("jumping", false);
         isGrounded = b;
     }
 
