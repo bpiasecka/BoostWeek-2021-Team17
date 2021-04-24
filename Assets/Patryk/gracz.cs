@@ -19,6 +19,7 @@ public class gracz : MonoBehaviour
     float e1;
     float e2;
     float e3;
+    float d1;
 
     public int energyControl;
 
@@ -34,6 +35,7 @@ public class gracz : MonoBehaviour
         e1 = 0;
         e2 = 0;
         e3 = 0;
+        d1 = 0;
 
         StartCoroutine(EnergiaCykl());
     }
@@ -54,7 +56,7 @@ public class gracz : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         baterja.SetFloat("_EnergyAmount", currentEnergy);
-        minusEnergy = e1 + e2 + e3;
+        minusEnergy = e1 + e2 + e3 - d1;
 
         currentEnergy -= minusEnergy;
 
@@ -117,5 +119,15 @@ public class gracz : MonoBehaviour
     {
         e3 = 0;
         ogien = false;
+    }
+
+    public void DynoOn()
+    {
+        d1 = 5;
+    }
+
+    public void DynoOff()
+    {
+        d1 = 0;
     }
 }
