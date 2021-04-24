@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarScript : MonoBehaviour
 {
     public float speed;
-    public float energyLevel, energyUsage;
+    public float energyLevel, energyUsage, health;
     public bool isDriving = false;
     public gracz engine;
 
@@ -49,5 +50,17 @@ public class CarScript : MonoBehaviour
     public void OnDriveButtonClicked()
     {
         isDriving = !isDriving;
+    }
+
+    public void MakeDamage(float damageValue)
+    {
+        health -= damageValue;
+        if (health <= 0)
+            RestartLevel();
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
