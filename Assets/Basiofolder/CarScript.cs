@@ -7,6 +7,7 @@ public class CarScript : MonoBehaviour
     public float speed;
     public float energyLevel, energyUsage;
     public bool isDriving = false;
+    public gracz engine;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class CarScript : MonoBehaviour
     {
         if(isDriving)
         {
+            engine.SilnikStart();
             Drive();
         }
     }
@@ -28,7 +30,10 @@ public class CarScript : MonoBehaviour
             energyLevel = Mathf.Max(energyLevel - energyUsage * Time.deltaTime, 0f);
         }
         else
+        {
             isDriving = false;
+            engine.SilnikOff();
+        }
     }
 
     public void OnDriveButtonClicked()

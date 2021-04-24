@@ -9,7 +9,7 @@ public class gracz : MonoBehaviour
 
     public int minusEnergy;
 
-    public SourceBar energyBar;
+    //public SourceBar energyBar;
 
     public bool silnik;
     public bool ogien;
@@ -24,7 +24,7 @@ public class gracz : MonoBehaviour
     void Start()
     {
         currentEnergy = maxEnergy;
-        energyBar.SetMaxEnergy(maxEnergy);
+       // energyBar.SetMaxEnergy(maxEnergy);
 
         swiatlo = false;
         ogien = false;
@@ -38,7 +38,7 @@ public class gracz : MonoBehaviour
     void TakeEnergy()
     {
         currentEnergy -= 10;
-        energyBar.SetEnergy(currentEnergy);
+       // energyBar.SetEnergy(currentEnergy);
     }
 
     public void Update()
@@ -48,7 +48,7 @@ public class gracz : MonoBehaviour
         currentEnergy -= minusEnergy;
 
         energyControl = PlayerPrefs.GetInt("energy");
-        energyBar.SetEnergy(currentEnergy);
+       // energyBar.SetEnergy(currentEnergy);
         if (currentEnergy > maxEnergy)
         {
             currentEnergy = 100;
