@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class gracz : MonoBehaviour
 {
-    public int maxEnergy = 100;
-    public int currentEnergy;
+    public float maxEnergy = 100;
+    public float currentEnergy;
 
-    public int minusEnergy;
+    public float minusEnergy;
 
+    public Material baterja;
     //public SourceBar energyBar;
 
     public bool silnik;
     public bool ogien;
     public bool swiatlo;
 
-    int e1;
-    int e2;
-    int e3;
+    float e1;
+    float e2;
+    float e3;
 
     public int energyControl;
 
