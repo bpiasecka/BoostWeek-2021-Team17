@@ -152,7 +152,7 @@ MonoBehaviour:
     min: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 21.3
+    m_Value: 19
     min: 0
   farFocusStart:
     m_OverrideState: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
     m_Value: 0
   top:
     m_OverrideState: 1
-    m_Value: {r: 0.030697674, g: 0.030697674, b: 0.06, a: 1}
+    m_Value: {r: 0.02, g: 0.02, b: 0.04, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -514,23 +514,23 @@ MonoBehaviour:
     m_Value: 620.7
     min: 0
   directionalTransmissionMultiplier:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
     min: 0
     max: 1
   cascadeShadowSplitCount:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 4
     min: 1
     max: 4
   cascadeShadowSplit0:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.05
   cascadeShadowSplit1:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.15
   cascadeShadowSplit2:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.3
   cascadeShadowBorder0:
     m_OverrideState: 0
