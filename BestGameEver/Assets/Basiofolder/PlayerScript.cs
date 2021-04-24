@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed;
+    public float speed, jumpForce;
     public Rigidbody rb;
     public bool isGrounded, isJumpBlocked;
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (!isJumpBlocked && isGrounded && Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddForce(new Vector3(0f, 100f, 0f));
+            rb.AddForce(new Vector3(0f, jumpForce, 0f));
             StartCoroutine(BlockJump());
         }
     }
