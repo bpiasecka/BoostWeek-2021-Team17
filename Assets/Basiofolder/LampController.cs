@@ -19,6 +19,10 @@ public class LampController : MonoBehaviour
     public void SetLight()
     {
         light.enabled = !light.enabled;
+        if (light.enabled)
+            GameObject.FindObjectOfType<gracz>().LightOn();
+        else
+            GameObject.FindObjectOfType<gracz>().LightOff();
     }
 
 
