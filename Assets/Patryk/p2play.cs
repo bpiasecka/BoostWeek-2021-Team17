@@ -20,7 +20,7 @@ public class p2play : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("energy") == 0 & placem == 1)
+        if (PlayerPrefs.GetInt("energy") == 0)
         {
             pay.SetActive(true);
         }
@@ -35,6 +35,6 @@ public class p2play : MonoBehaviour
 
     public void Zydek()
     {
-        pay.SetActive(false);
+        Destroy(pay);
     }
 }
