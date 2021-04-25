@@ -57,7 +57,7 @@ public class gracz : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         baterja.SetFloat("_EnergyAmount", currentEnergy);
-        minusEnergy = e1 + e2 + e3 - d1;
+        minusEnergy = e1 + e2 + e3;
 
         currentEnergy -= minusEnergy;
 
@@ -125,6 +125,7 @@ public class gracz : MonoBehaviour
     public void DynoOn()
     {
         d1 = 5;
+        currentEnergy += d1;
     }
 
     public void DynoOff()
