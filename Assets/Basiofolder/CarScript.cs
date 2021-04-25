@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CarScript : MonoBehaviour
@@ -9,6 +10,7 @@ public class CarScript : MonoBehaviour
     public float energyLevel, energyUsage, health;
     public bool isDriving = false;
     public gracz engine;
+    public Text healthText;
 
     void Start()
     {
@@ -55,6 +57,7 @@ public class CarScript : MonoBehaviour
     public void MakeDamage(float damageValue)
     {
         health -= damageValue;
+        healthText.text = health.ToString();
         if (health <= 0)
             RestartLevel();
     }
