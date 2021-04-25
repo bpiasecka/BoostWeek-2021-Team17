@@ -20,7 +20,7 @@ public class playShader : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             efect.Play();
-            StartCoroutine(shake.Shake(.08f, .2f));
+            StartCoroutine(shake.Shake(.02f, .05f));
         }
 
     }
