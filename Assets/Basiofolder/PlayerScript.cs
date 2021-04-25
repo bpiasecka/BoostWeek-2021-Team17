@@ -40,6 +40,10 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(new Vector3(0f, jumpForce, 0f));
             StartCoroutine(BlockJump());
         }
+        if(!isGrounded && Input.GetKey(KeyCode.S))
+        {
+            rb.AddForce(new Vector3(0f, -jumpForce/2, 0f));
+        }
 
         if(transform.position.y < 1f)
         {

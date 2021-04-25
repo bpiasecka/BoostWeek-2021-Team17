@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class gracz : MonoBehaviour
 {
+    public float driving, laser, fire, light, dynamo;
     public float maxEnergy = 100;
     public float currentEnergy;
 
@@ -14,11 +15,11 @@ public class gracz : MonoBehaviour
 
     public bool silnik;
     public bool ogien;
-    public bool swiatlo;
+    public bool swiatlo, topLight;
 
     float e1;
     float e2;
-    float e3;
+    float e3, e4;
     float d1;
 
     public int energyControl;
@@ -41,12 +42,6 @@ public class gracz : MonoBehaviour
         StartCoroutine(EnergiaCykl());
     }
 
-    void TakeEnergy()
-    {
-        currentEnergy -= 10;
-       // energyBar.SetEnergy(currentEnergy);
-    }
-
     public void Update()
     {
         
@@ -57,7 +52,7 @@ public class gracz : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         baterja.SetFloat("_EnergyAmount", currentEnergy);
-        minusEnergy = e1 + e2 + e3;
+        minusEnergy = e1 + e2 + e3 + e4;
 
         currentEnergy -= minusEnergy;
 
@@ -75,6 +70,7 @@ public class gracz : MonoBehaviour
             SilnikOff();
             SwiatloOff();
             OgienOff();
+            LightOff();
         }
         if (currentEnergy > 0)
         {
@@ -88,7 +84,7 @@ public class gracz : MonoBehaviour
 
     public void SilnikStart()
     {
-        e1 = 1;
+        e1 = driving;
         silnik = true;
     }
 
@@ -100,7 +96,7 @@ public class gracz : MonoBehaviour
 
     public void SwiatloStart()
     {
-        e2 = 1;
+        e2 = laser;
         swiatlo = true;
     }
 
@@ -112,7 +108,7 @@ public class gracz : MonoBehaviour
 
     public void OgienStart()
     {
-        e3 = 1;
+        e3 = fire;
         ogien = true;
     }
 
@@ -124,12 +120,24 @@ public class gracz : MonoBehaviour
 
     public void DynoOn()
     {
-        d1 = 5;
+        d1 = dynamo;
         currentEnergy += d1;
     }
 
     public void DynoOff()
     {
         d1 = 0;
+    }
+
+    public void LightOn()
+    {
+        e4 = light;
+        topLight = true;
+    }
+
+    public void LightOff()
+    {
+        e4 = 0;
+        topLight = false;
     }
 }
