@@ -25,6 +25,7 @@ public class gracz : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("energy", 1);
         currentEnergy = maxEnergy;
        // energyBar.SetMaxEnergy(maxEnergy);
 
