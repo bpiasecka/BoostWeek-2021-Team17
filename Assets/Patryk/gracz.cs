@@ -140,4 +140,9 @@ public class gracz : MonoBehaviour
         e4 = 0;
         topLight = false;
     }
+
+    public void Hajsiwo()
+    {
+        currentEnergy = maxEnergy;
+    }
 }
