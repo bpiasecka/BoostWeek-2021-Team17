@@ -554,6 +554,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6681592443688369022, guid: 6bd3072b276b23047b42712092c818f1, type: 3}
+      propertyPath: startPositionInCar.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681592443688369022, guid: 6bd3072b276b23047b42712092c818f1, type: 3}
+      propertyPath: startPositionInCar.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681592443688369022, guid: 6bd3072b276b23047b42712092c818f1, type: 3}
+      propertyPath: startPositionInCar.z
+      value: -0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd3072b276b23047b42712092c818f1, type: 3}
 --- !u!1 &1273411280 stripped
@@ -629,6 +641,22 @@ PrefabInstance:
     - target: {fileID: 809066007248258657, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776523219581960791, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776523219581960791, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776523219581960791, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
+      propertyPath: m_Center.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776523219581960791, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2266966277827496606, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
       propertyPath: shake
@@ -766,6 +794,10 @@ PrefabInstance:
       propertyPath: efect1
       value: 
       objectReference: {fileID: 2107196399}
+    - target: {fileID: 8326381404283499150, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 1704553581}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2431a46e1382da4393858d0fcf8d262, type: 3}
 --- !u!1 &1303992469 stripped
