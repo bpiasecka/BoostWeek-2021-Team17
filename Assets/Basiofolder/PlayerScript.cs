@@ -47,8 +47,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
     public IEnumerator BlockJump()
-    {
-        isJumpBlocked = true;
+    {   isJumpBlocked = true;
         yield return new WaitForSeconds(0.1f);
         isJumpBlocked = false;
     }
